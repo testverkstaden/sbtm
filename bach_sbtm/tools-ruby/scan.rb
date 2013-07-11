@@ -232,7 +232,7 @@ def parsestart( startmode = "sessions" )
 				if ((( time_line.mon != fn_month ) or ( time_line.day != fn_day) or ( time_line.strftime("%y") != fn_year )) and startmode == "sessions" )
 					error("File name does not match date in Start section") 
 				end
-				start_date = time_line.strftime("%m/%d/%y")
+				start_date = time_line.strftime("%Y-%m-%d")
 				start_time = time_line.strftime("%I:%M %p").downcase
 				# (Aside: no longer stripping the leading 0's from the date and time)
 			end
@@ -968,7 +968,7 @@ testers.each do | tester_name, sess_arr |
 	dn_total.sort.each do | date_name, value |
 		start = date_name.split(/\t/)[0]
 		f_TDAYBREAKS.puts "\"" + tester_name + "\"\t\"" + 
-			start[-5,5] + '/' + start[0,2] + "\"\t\"" + 
+			start[-5,5] + '/' + start[6,7] + "\"\t\"" + 
 			dn_total[ date_name ].to_s + "\"\t\"" + 
 			dn_charter[ date_name ].to_s + "\"\t\"" + 
 			dn_opportunity[ date_name ].to_s + "\"\t\"" + 

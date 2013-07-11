@@ -1,0 +1,63 @@
+CHARTER
+-----------------------------------------------
+Exempel
+
+#AREAS
+TA | 
+B | 
+TE | 
+
+START
+-----------------------------------------------
+08/01/14 15:15pm
+
+TESTER
+-----------------------------------------------
+exempel
+
+TASK BREAKDOWN
+-----------------------------------------------
+
+#DURATION
+long
+
+#SESSION SETUP
+30
+#TEST DESIGN AND EXECUTION
+60
+
+#BUG INVESTIGATION AND REPORTING
+10
+
+#CHARTER VS. OPPORTUNITY
+100/0
+
+DATA FILES
+-----------------------------------------------
+#N/A
+
+TEST NOTES
+-----------------------------------------------
+
+** Test Summary **
+
+A summary of what is tested.
+1) Test 1
+2) Test 2
+
+** Tests **
+1) Test 1
+- Details ...
+
+
+2) Test 2
+- Details ...
+
+
+BUGS
+-----------------------------------------------
+#N/A
+
+ISSUES
+-----------------------------------------------
+#N/A
