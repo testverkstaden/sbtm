@@ -215,6 +215,7 @@ def parsestart( startmode = "sessions" )
 	start_time = ''
 
 	File.basename( @file ) =~ /et-\w{2,3}-(\d\d)(\d\d)(\d\d)-\w\.ses/
+
 	fn_year = $1
 	fn_month = $2.to_i
 	fn_day = $3.to_i
@@ -943,7 +944,9 @@ testers.each do | tester_name, sess_arr |
 		tissues.has_key?( tester_name ) ?   	tissues[ tester_name ] += ( issues/testers ) :   		tissues[ tester_name ] = ( issues/testers )
 		
 		# (change the date format so it correctly sorts in 'yy/mm/dd' format -- we'll switch it back later when writing to file)
-		dnew_key = start[-2,2] + '/' + start[0,5] + "\t" + tester_name
+    #dnew_key = start[-4,4] + '/' + start[0,5] + "\t" + tester_name
+    dnew_key = start + "\t" + tester_name
+
 		dn_total.has_key?( dnew_key ) ?   	dn_total[ dnew_key ] += ( n_total/testers ) : 		dn_total[ dnew_key ] = ( n_total/testers )
 		dn_charter.has_key?( dnew_key ) ? 	dn_charter[ dnew_key ] += ( n_charter/testers ) :   	dn_charter[ dnew_key ] = ( n_charter/testers )
 		dn_opportunity.has_key?( dnew_key ) ? 	dn_opportunity[ dnew_key ] += ( n_opportunity/testers ) : dn_opportunity[ dnew_key ] = ( n_opportunity/testers )
@@ -968,8 +971,9 @@ testers.each do | tester_name, sess_arr |
 	dn_total.sort.each do | date_name, value |
 		start = date_name.split(/\t/)[0]
 		f_TDAYBREAKS.puts "\"" + tester_name + "\"\t\"" + 
-			start[-5,5] + '/' + start[6,7] + "\"\t\"" + 
-			dn_total[ date_name ].to_s + "\"\t\"" + 
+			#start[-5,5] + '/' + start[6,7] + "\"\t\"" +
+      start +"\"\t\"" +
+      dn_total[ date_name ].to_s + "\"\t\"" +
 			dn_charter[ date_name ].to_s + "\"\t\"" + 
 			dn_opportunity[ date_name ].to_s + "\"\t\"" + 
 			dn_test[ date_name ].to_s + "\"\t\"" + 
